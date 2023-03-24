@@ -10,10 +10,10 @@ jobs:
         continue-on-error: true
         run: docker stop website06 && docker rm website06 && docker rmi tzeyaang/website06
       - name: Build Image 
-        run: docker build -t tzeyaang/website06 .
+        run: docker build -t tzeyaang/websitetest .
       - name: List Image
         run: docker images
       - name: Upload image to Docker Hub
-        run: docker push tzeyaang/website06
+        run: docker push tzeyaang/websitepush
       - name: Deploy Website06
-        run: docker run -d --name=website06 -p 8080:80 tzeyaang/website06
+        run: docker run -d --name=website06 -p 8080:80 tzeyaang/websitepush
