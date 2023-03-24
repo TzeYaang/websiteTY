@@ -8,12 +8,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Clean
         continue-on-error: true
-        run: docker stop website06 && docker rm website06 && docker rmi tzeyaang/websiteTY
+        run: docker stop website06 && docker rm website06 && docker rmi tzeyaang/website06
       - name: Build Image 
-        run: docker build -t tzeyaang/websiteTY .
+        run: docker build -t tzeyaang/website06 .
       - name: List Image
         run: docker images
       - name: Upload image to Docker Hub
-        run: docker push tzeyaang/websiteTY
-      - name: Deploy WebsiteTY
-        run: docker run -d --name=websiteTY -p 8080:80 tzeyaang/websiteTY
+        run: docker push tzeyaang/website06
+      - name: Deploy Website06
+        run: docker run -d --name=website06 -p 8080:80 tzeyaang/website06
